@@ -1,3 +1,35 @@
+Server Running On
+*    Port: 8080
+
+MySQL Server Running On
+* host: "localhost",
+
+Under Config Folder in config.json
+configure username, password, database under development
+{
+	"development": {
+		"username": "Your username",
+		"password": "Your Passowrd",
+		"database": "the db you will use",
+		"host": "127.0.0.1",
+		"dialect": "mysql"
+	},
+	"test": {
+		"username": "root",
+		"password": null,
+		"database": "database_test",
+		"host": "127.0.0.1",
+		"dialect": "mysql"
+	},
+	"production": {
+		"username": "root",
+		"password": null,
+		"database": "database_production",
+		"host": "127.0.0.1",
+		"dialect": "mysql"
+	}
+}
+
 add public folder
 add public/upload folder
 add public/upload/productImage folder
@@ -34,6 +66,6 @@ add data as body
 
 # GET REQUEST
 4. Develop an API that can show the latest created 2nd and 3rd product
-http://localhost:8080/product/showLatestCreated2ndAnd3rdProduct
+# http://localhost:8080/product/showLatestCreated2ndAnd3rdProduct
 
 
