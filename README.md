@@ -7,6 +7,8 @@
 * Under Config Folder in config.json
   * configure username, password, database under development
 
+
+
 ``` json
 {
 	"development": {
@@ -33,9 +35,11 @@
 }
 ```
 
-add public folder
-add public/upload folder
-add public/upload/productImage folder
+
+### CREATE productImage folder
+* add public folder
+* add public/upload folder
+* add public/upload/productImage folder
 
 # Routes-
 # POST REQUEST
