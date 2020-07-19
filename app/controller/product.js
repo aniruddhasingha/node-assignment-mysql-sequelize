@@ -28,6 +28,24 @@ const upload = multer({
 /**
  * PRIVATE FUNCTION
  */
+/**
+ * 
+ * @param {string} path 
+ */
+const removeImage = async (path) => {
+    console.log("check")
+    console.log(path)
+    if (fs.existsSync(path)) {
+        fs.unlink(path, (err) => {
+            if (err) {
+                console.log(err)
+            }
+
+            //file removed
+        })
+    }
+
+}
 
 /**
  * Get details of latest Created 2nd And 3rd product
@@ -169,6 +187,7 @@ exports.addProductWithProductImage = async (req, res) => {
             `Product Created Successfully`);
     }
     catch (error) {
+        await removeImage(`./public/uploads/productImage/${req.file.filename}`);
         utils.handleError(res, { message: `internal server error` })
     }
 }
@@ -206,6 +225,7 @@ exports.updateProductWithid = async (req, res) => {
         }
     }
     catch (error) {
+        await removeImage(`./public/uploads/productImage/${req.file.filename}`);
         utils.handleError(res, { message: `error while updating Product and Image` }, error)
     }
 }
