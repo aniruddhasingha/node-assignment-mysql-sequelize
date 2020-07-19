@@ -7,4 +7,5 @@ const sequelize = new Sequelize('assignment', `${process.env.DB_USERNAME}`, `${p
     })
 
 module.exports = sequelize;
+// declaring sequelize as global so we can use it anywhere
 global.sequelize = sequelize;
