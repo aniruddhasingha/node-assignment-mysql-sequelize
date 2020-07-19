@@ -54,7 +54,7 @@ add data as multi-part-form-data
 }
 
 ## 2. Develop an API that can update a product and respective product image
-## http://localhost:8080/product/updateProductAndRespectiveProductImage
+### http://localhost:8080/product/updateProductAndRespectiveProductImage
 add data as multi-part-form-data
 {
     Image: File (required field),
@@ -65,14 +65,14 @@ add data as multi-part-form-data
 }
 
 ## 3. Develop an API that can show product with product image
-## http://localhost:8080/product/ShowProductWithProductImage
+### http://localhost:8080/product/ShowProductWithProductImage
 add data as body
 {
     product_id: "product id" (required field),
 }
 
-## GET REQUEST
+# GET REQUEST
 ## 4. Develop an API that can show the latest created 2nd and 3rd product
-# http://localhost:8080/product/showLatestCreated2ndAnd3rdProduct
+### http://localhost:8080/product/showLatestCreated2ndAnd3rdProduct
 
 
