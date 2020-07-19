@@ -1,11 +1,13 @@
-Server Running On
-*    Port: 8080
+* Server Running On
+   * Port: 8080
 
-MySQL Server Running On
-* host: "localhost",
+* MySQL Server Running On
+  * host: "localhost",
 
-Under Config Folder in config.json
-configure username, password, database under development
+* Under Config Folder in config.json
+  * configure username, password, database under development
+
+``` json
 {
 	"development": {
 		"username": "Your username",
@@ -29,6 +31,7 @@ configure username, password, database under development
 		"dialect": "mysql"
 	}
 }
+```
 
 add public folder
 add public/upload folder
@@ -37,7 +40,7 @@ add public/upload/productImage folder
 # Routes-
 # POST REQUEST
 1. Develop an API, that can add a product with a product image
-# http://localhost:8080/product/addProductWithProductImage
+## http://localhost:8080/product/addProductWithProductImage
 add data as multi-part-form-data
 {
     Image: File,
@@ -47,7 +50,7 @@ add data as multi-part-form-data
 }
 
 2. Develop an API that can update a product and respective product image
-# http://localhost:8080/product/updateProductAndRespectiveProductImage
+## http://localhost:8080/product/updateProductAndRespectiveProductImage
 add data as multi-part-form-data
 {
     Image: File (required field),
@@ -58,13 +61,13 @@ add data as multi-part-form-data
 }
 
 3. Develop an API that can show product with product image
-# http://localhost:8080/product/ShowProductWithProductImage
+## http://localhost:8080/product/ShowProductWithProductImage
 add data as body
 {
     product_id: "product id" (required field),
 }
 
-# GET REQUEST
+## GET REQUEST
 4. Develop an API that can show the latest created 2nd and 3rd product
 # http://localhost:8080/product/showLatestCreated2ndAnd3rdProduct
 
