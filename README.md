@@ -43,8 +43,8 @@
 
 # Routes-
 # POST REQUEST
-1. Develop an API, that can add a product with a product image
-## http://localhost:8080/product/addProductWithProductImage
+## 1. Develop an API, that can add a product with a product image
+### http://localhost:8080/product/addProductWithProductImage
 add data as multi-part-form-data
 {
     Image: File,
@@ -53,7 +53,7 @@ add data as multi-part-form-data
     Status:1 or 0
 }
 
-2. Develop an API that can update a product and respective product image
+## 2. Develop an API that can update a product and respective product image
 ## http://localhost:8080/product/updateProductAndRespectiveProductImage
 add data as multi-part-form-data
 {
@@ -64,7 +64,7 @@ add data as multi-part-form-data
         Status: 1 or 0 (optional field)
 }
 
-3. Develop an API that can show product with product image
+## 3. Develop an API that can show product with product image
 ## http://localhost:8080/product/ShowProductWithProductImage
 add data as body
 {
@@ -72,7 +72,7 @@ add data as body
 }
 
 ## GET REQUEST
-4. Develop an API that can show the latest created 2nd and 3rd product
+## 4. Develop an API that can show the latest created 2nd and 3rd product
 # http://localhost:8080/product/showLatestCreated2ndAnd3rdProduct
 
 
