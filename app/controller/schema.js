@@ -14,5 +14,8 @@ const schemas = {
         new_product_desc: Joi.string().optional(),
         Status: Joi.number().valid(1, 0).optional()
     }),
+    ProductId: Joi.object().keys({
+        product_id: Joi.number().required(),
+    })
 }
 module.exports = schemas;

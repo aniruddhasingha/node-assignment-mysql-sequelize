@@ -25,6 +25,14 @@ const upload = multer({
 }).single('Image');
 
 
+/**
+ * PRIVATE FUNCTION
+ */
+
+/**
+ * Get details of latest Created 2nd And 3rd product
+ */
+
 const showlatestCreated2ndAnd3rd = async () => Product.findAll({
     include: [
         {
@@ -36,6 +44,11 @@ const showlatestCreated2ndAnd3rd = async () => Product.findAll({
     order: [['id', 'DESC']]
 })
 
+/**
+ * Get Product detials with product id
+ * @param {Number} product_id 
+ */
+
 const getProduct = async (product_id) => Product.findAll({
     // attributes: ['id', 'product_name', 'product_desc', 'fk_image_id', 'Status', 'created_on', 'updated_on', ],
     include: [
@@ -46,14 +59,15 @@ const getProduct = async (product_id) => Product.findAll({
         }],
     where: { id: product_id }
 });
-const updateImage = async (image_name, image_ext, imageId) => Image.update({
-    image_name: image_name,
-    image_ext: image_ext
-}, {
-    where: {
-        id: imageId
-    }
-})
+
+/**
+ * Update a product with product_id
+ * @param {number} product_id
+ * @param {String} product_name,
+ *@param {String}  product_desc, 
+ * @param {number}fk_image_id,
+ *  @param {number}Status
+ */
 const updateProduct = async ({
     product_id, product_name, product_desc, fk_image_id, Status,
 }) => Product.update({
@@ -68,7 +82,10 @@ const updateProduct = async ({
     }
 }
 )
-
+/**
+ * create Product in Product Table
+ * @param {Object} data 
+ */
 const createProduct = (data) => {
     return Product.create(data, {
         returning: true,
@@ -77,6 +94,11 @@ const createProduct = (data) => {
         .catch(err => err)
 }
 
+/**
+ * upload and image in public/upload/productImage
+ * @param {string} image_name 
+ * @param {string} image_ext 
+ */
 const uploadProductImage = (image_name, image_ext) => {
     return Image.create({
         image_name: image_name,
@@ -89,8 +111,17 @@ const uploadProductImage = (image_name, image_ext) => {
     }).catch(err => err)
 }
 
+/**
+ * PUBLIC FUNCTION
+ */
 
 
+/**
+ * Add ProductImage In Uploads Folder
+ * @param {object} req 
+ * @param {object} res 
+ * @param {function} next 
+ */
 
 exports.addProductImage = async (req, res, next) => {
     upload(req, res, async function (err) {
@@ -109,6 +140,12 @@ exports.addProductImage = async (req, res, next) => {
         }
     })
 }
+
+/**
+ * Add Product Along with Product Image
+ * @param {Object} req 
+ * @param {Object} res 
+ */
 
 exports.addProductWithProductImage = async (req, res) => {
     try {
@@ -137,7 +174,11 @@ exports.addProductWithProductImage = async (req, res) => {
 }
 
 
-
+/**
+ * Update a product and respective product image
+ * @param {Object} req
+ * @param {Object} res
+ */
 
 exports.updateProductWithid = async (req, res) => {
     try {
@@ -169,6 +210,11 @@ exports.updateProductWithid = async (req, res) => {
     }
 }
 
+/**
+ *  Show the latest created 2nd and 3rd product
+ * @param {Object} req 
+ * @param {Object} res 
+ */
 exports.latestCreated2ndAnd3rd = async (req, res) => {
     try {
         const udpatedData = await showlatestCreated2ndAnd3rd()
@@ -182,7 +228,26 @@ exports.latestCreated2ndAnd3rd = async (req, res) => {
     }
 }
 
+/**
+ * Show product details with product_id
+ * @param {Object} req 
+ * @param {Object} res 
+ */
 
-
+exports.showProductDetails = async (req, res) => {
+    try {
+        const { product_id } = req.body
+        const finalData = await getProduct(product_id)
+        if (finalData) {
+            return utils.handleSuccess(
+                res,
+                finalData,
+                `Product Details Recieved`);
+        }
+    }
+    catch (error) {
+        utils.handleError(res, { message: `error while showing product` }, error)
+    }
+}
 
 
