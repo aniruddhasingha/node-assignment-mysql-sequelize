@@ -5,6 +5,7 @@ const express = require('express')
 const bodyParser = require('body-parser')
 const morgan = require('morgan')
 const cors = require('cors')
+// exporting mysql conncetion  from connection.js
 require('./app/database/connection')
 
 const app = express()
@@ -30,6 +31,7 @@ app.use(
 app.use(cors())
 app.use(express.static('public'))
 app.use(require('./app/routes'));
+
 app.listen(app.get('port'), () => {
     if (process.env.NODE_ENV !== 'test') {
         // Prints initialization
@@ -40,7 +42,7 @@ app.listen(app.get('port'), () => {
 
     }
 })
-
+// Checking if mysql server connected
 sequelize.authenticate()
     .then(() => {
         console.log('*    DB Connection has been established successfully.');
